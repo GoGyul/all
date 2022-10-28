@@ -5,34 +5,34 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class GoWhile {
+public class FindMaxNum {
 
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//		int count = Integer.parseInt(br.readLine());
-		StringTokenizer st;
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		int result = -1;
+		int idx = 0;
 		
-		while(true) {
-			String str = br.readLine();
-			if(str==null) {
-				break;
+		for(int i = 0; i<9; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int n = Integer.parseInt(st.nextToken());
+			if(result<n) {
+				result = n;
+				idx = i;
 			}
-			st = new StringTokenizer(str," ");
-			int n1 = Integer.parseInt(st.nextToken());
-			int n2 = Integer.parseInt(st.nextToken());
-			
-			bw.write((n1 + n2) + "\n");
-			
 		}
+		
+		bw.write(result+"\n"+(idx+1));
 		
 		br.close();
 		bw.flush();
 		bw.close();
 		
 	}
-
 }
